@@ -27,31 +27,31 @@ def read_file_as_image(data) -> np.ndarray:
     return image
 
 
-# @app.post("/predict")
-# @app.get("/predict")
-# async def predict(file: UploadFile = File(...)):
-#     image = read_file_as_image(await file.read())
-#     img_batch = np.expand_dims(image, 0)
+#@app.post("/predict")
+@app.get("/predict")
+async def predict(file: UploadFile = File(...)):
+    image = read_file_as_image(await file.read())
+    img_batch = np.expand_dims(image, 0)
 
-#     predictions = MODEL.predict(img_batch)
+    predictions = MODEL.predict(img_batch)
 
-#     predicted_class = CLASS_NAMES[np.argmax(predictions[0])]
-#     confidence = np.max(predictions[0])
-#     return {"class": predicted_class, "confidence": float(confidence)}
+    predicted_class = CLASS_NAMES[np.argmax(predictions[0])]
+    confidence = np.max(predictions[0])
+    return {"class": predicted_class, "confidence": float(confidence)}
 
 # @app.post("/upload")
-@app.get("/predict")
-def upload(file: UploadFile = File(...)):
-    try:
-        contents = file.file.read()
-        with open(file.filename, 'wb') as f:
-            f.write(contents)
-    except Exception:
-        return {"message": "There was an error uploading the file"}
-    finally:
-        file.file.close()
+# @app.get("/predict")
+# def upload(file: UploadFile = File(...)):
+#     try:
+#         contents = file.file.read()
+#         with open(file.filename, 'wb') as f:
+#             f.write(contents)
+#     except Exception:
+#         return {"message": "There was an error uploading the file"}
+#     finally:
+#         file.file.close()
 
-    return {"message": f"Successfully uploaded {file.filename}"}
+#     return {"message": f"Successfully uploaded {file.filename}"}
 
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=8000)

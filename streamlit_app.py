@@ -12,9 +12,9 @@ def predict():
     upload = st.file_uploader("Upload your file here...", type=['png', 'jpeg', 'jpg'])
     
     if upload is not None:
-        im = Image.open(upload)
-        img = np.asarray(im)
-        img_batch = np.expand_dims(img, 0)
+        image = Image.open(upload)
+        image = np.asarray(image)
+        img_batch = np.expand_dims(image, 0)
 
         predictions = MODEL.predict(img_batch)
 
@@ -23,6 +23,7 @@ def predict():
         return {"class": predicted_class, "confidence": float(confidence)}
     else:
         return {"class": "No Image", "confidence": 1}
-    
+
+predict_output = predict()
 st.write(predict_output['class'])
 

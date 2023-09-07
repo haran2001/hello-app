@@ -31,7 +31,7 @@ def predict():
         image = st.image(uploaded_file)
     
     # if image is not None:
-        image = read_file_as_image(image)
+        #image = read_file_as_image(image)
         img_batch = np.expand_dims(image, 0)
 
         predictions = MODEL.predict(img_batch)

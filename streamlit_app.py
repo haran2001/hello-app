@@ -35,7 +35,7 @@ def predict():
         #img_batch = np.expand_dims(image, 0)
 
         #predictions = MODEL.predict(img_batch)
-        predictions = MODEL.predict(img)
+        predictions = MODEL.predict(image)
 
         predicted_class = CLASS_NAMES[np.argmax(predictions[0])]
         confidence = np.max(predictions[0])

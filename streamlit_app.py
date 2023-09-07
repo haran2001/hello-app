@@ -28,9 +28,9 @@ def predict():
     upload = st.file_uploader("Upload your file here...", type=['png', 'jpeg', 'jpg'])
     
     if upload is not None:
-         im = Image.open(upload)
-         img = np.asarray(im)
-         img_batch = np.expand_dims(img, 0)
+        im = Image.open(upload)
+        img = np.asarray(im)
+        img_batch = np.expand_dims(img, 0)
         #image = st.image(uploaded_file)
     
     # if image is not None:

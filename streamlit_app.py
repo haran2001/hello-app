@@ -51,5 +51,5 @@ value = ping()
 st.write('hello world')
 st.write(value)
 predict_output = predict()
-print(predict_output['class'])
+st.write(predict_output['class'])
 

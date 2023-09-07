@@ -3,3 +3,4 @@ tensorflow
 uvicorn
 numpy
 pillow
+python-multipart

@@ -52,7 +52,7 @@ def read_file_as_image(data) -> np.ndarray:
     return image
 
 def predict(file: UploadFile = File(...)):
-    image = read_file_as_image(await file.read())
+    image = read_file_as_image(file.read())
     img_batch = np.expand_dims(image, 0)
 
     predictions = MODEL.predict(img_batch)

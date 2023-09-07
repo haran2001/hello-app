@@ -53,5 +53,6 @@ async def predict(file: UploadFile = File(...)):
 
 #     return {"message": f"Successfully uploaded {file.filename}"}
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="localhost", port=8000)
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="localhost", port=8000)
+ping()

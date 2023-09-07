@@ -24,7 +24,7 @@ def read_file_as_image(data) -> np.ndarray:
     image = np.array(Image.open(BytesIO(data)))
     return image
 
-def predict(file: UploadFile = File(...)):
+def predict():
     image = st.file_uploader("Upload your file here...")
     image = read_file_as_image(image)
     img_batch = np.expand_dims(image, 0)

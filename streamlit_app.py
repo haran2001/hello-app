@@ -25,17 +25,20 @@ def read_file_as_image(data) -> np.ndarray:
     return image
 
 def predict():
-    uploaded_file = st.file_uploader("Upload your file here...", type=['png', 'jpeg', 'jpg'])
+    upload = st.file_uploader("Upload your file here...", type=['png', 'jpeg', 'jpg'])
     
-    if uploaded_file is not None:
-        image = st.image(uploaded_file)
+    if upload is not None:
+         im = Image.open(upload)
+         img = np.asarray(im)
+         img_batch = np.expand_dims(img, 0)
+        #image = st.image(uploaded_file)
     
     # if image is not None:
         #image = read_file_as_image(image)
         #img_batch = np.expand_dims(image, 0)
 
-        #predictions = MODEL.predict(img_batch)
-        predictions = MODEL.predict(image)
+        predictions = MODEL.predict(img_batch)
+        #predictions = MODEL.predict(image)
 
         predicted_class = CLASS_NAMES[np.argmax(predictions[0])]
         confidence = np.max(predictions[0])

@@ -27,7 +27,6 @@ def read_file_as_image(data) -> np.ndarray:
     return image
 
 
-#@app.post("/predict")
 @app.get("/predict")
 async def predict(file: UploadFile = File(...)):
     image = read_file_as_image(await file.read())
@@ -39,20 +38,7 @@ async def predict(file: UploadFile = File(...)):
     confidence = np.max(predictions[0])
     return {"class": predicted_class, "confidence": float(confidence)}
 
-# @app.post("/upload")
-# @app.get("/predict")
-# def upload(file: UploadFile = File(...)):
-#     try:
-#         contents = file.file.read()
-#         with open(file.filename, 'wb') as f:
-#             f.write(contents)
-#     except Exception:
-#         return {"message": "There was an error uploading the file"}
-#     finally:
-#         file.file.close()
-
-#     return {"message": f"Successfully uploaded {file.filename}"}
 
 # if __name__ == "__main__":
 #     uvicorn.run(app, host="localhost", port=8000)
-ping()
+st.write('hello world')

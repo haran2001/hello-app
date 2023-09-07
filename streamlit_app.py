@@ -25,8 +25,12 @@ def read_file_as_image(data) -> np.ndarray:
     return image
 
 def predict():
-    image = st.file_uploader("Upload your file here...")
-    if image is not None:
+    uploaded_file = st.file_uploader("Upload your file here...", type=['png', 'jpeg', 'jpg'])
+    
+    if uploaded_file is not None:
+        image = st.image(uploaded_file)
+    
+    # if image is not None:
         image = read_file_as_image(image)
         img_batch = np.expand_dims(image, 0)
 
@@ -36,7 +40,7 @@ def predict():
         confidence = np.max(predictions[0])
         return {"class": predicted_class, "confidence": float(confidence)}
     else:
-        return "Pls upload image"
+        return {"class": "No Image", "confidence": 1}
     
 
 value = ping()

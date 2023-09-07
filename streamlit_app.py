@@ -5,6 +5,7 @@ import numpy as np
 from io import BytesIO
 from PIL import Image
 import tensorflow as tf
+import streamlit as st
 
 # import keras
 # import tensorflow.keras
@@ -17,7 +18,7 @@ MODEL = tf.keras.models.load_model("model.h5", compile=False)
 CLASS_NAMES = ["Potato___Early_blight", "Potato___Late_blight", "Potato___healthy"]
 
 
-@app.get("/ping")
+# @app.get("/ping")
 async def ping():
     return "Hello, I'm alive"
 
@@ -27,7 +28,7 @@ def read_file_as_image(data) -> np.ndarray:
     return image
 
 
-@app.get("/predict")
+# @app.get("/predict")
 async def predict(file: UploadFile = File(...)):
     image = read_file_as_image(await file.read())
     img_batch = np.expand_dims(image, 0)
@@ -41,4 +42,7 @@ async def predict(file: UploadFile = File(...)):
 
 # if __name__ == "__main__":
 #     uvicorn.run(app, host="localhost", port=8000)
+value = ping()
 st.write('hello world')
+st.write(value)
+

@@ -54,7 +54,7 @@ def predict():
         predicted_class_ensemble = CLASS_NAMES[np.argmax(all_predictions_ensemble[0])]
         confidence_ensemble = None
         
-        return {"class1": predicted_class1, "confidence1": float(confidence1), "class4": predicted_class4, "confidence4": float(confidence4), , "class_ensemble": predicted_class_ensemble, "confidence_ensemble": confidence_ensemble}
+        return {"class1": predicted_class1, "confidence1": float(confidence1), "class4": predicted_class4, "confidence4": float(confidence4), "class_ensemble": predicted_class_ensemble, "confidence_ensemble": confidence_ensemble}
     else:
         return {"class1": "No Image", "confidence1": 0, "class4": "No Image", "confidence4": "No Image"}
 

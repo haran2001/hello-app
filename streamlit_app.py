@@ -31,7 +31,7 @@ def predict():
         
         return {"class1": predicted_class1, "confidence1": float(confidence1), "class4": predicted_class4, "confidence4": float(confidence4)}
     else:
-        return {"class": "No Image", "confidence": 1}
+        return {"class1": "No Image", "confidence1": 0, "class4": "No Image", "confidence4": "No Image"}
 
 predicted_output = predict()
 st.write("Predicion from baseline CNN model (183877 parameters): ", predicted_output['class1'])

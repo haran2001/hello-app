@@ -59,8 +59,8 @@ def predict():
         return {"class1": "No Image", "confidence1": 0, "class4": "No Image", "confidence4": "No Image", "class_ensemble": "No Image", "confidence_ensemble": "No Image"}
 
 predicted_output = predict()
-st.write("Predicion from baseline CNN model (183877 parameters): ", predicted_output['class1'])
-st.write("Predicion from Mobilenet-v2 (2667589 parameters): ", predicted_output['class4'])
-st.write("Predicion from Ensemble of baseline and mobilenet-v2 : ", predicted_output['class_ensemble'])
+st.write("Prediction from baseline CNN model (183877 parameters): ", predicted_output['class1'])
+st.write("Prediction from Mobilenet-v2 (2667589 parameters): ", predicted_output['class4'])
+st.write("Prediction from Ensemble of baseline and mobilenet-v2 : ", predicted_output['class_ensemble'])
 
 

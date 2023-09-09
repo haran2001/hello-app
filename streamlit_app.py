@@ -17,9 +17,12 @@ def predict():
     
     if upload is not None:
         image = Image.open(upload)
+        image = im.crop((left, top, right, bottom))
+        newsize = (256, 256)
+        image = image.resize(newsize)
         image = np.asarray(image)
         img_batch = np.expand_dims(image, 0)
-
+        
         predictions1 = MODEL1.predict(img_batch)
         predictions4 = MODEL4.predict(img_batch)
 

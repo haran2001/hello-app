@@ -39,8 +39,8 @@ def predict():
         predictions4 = MODEL4.predict(img_batch)
         
         #Get model predictions for ensemble output
-        all_predictions1 = get_all_predictions(model1, images)
-        all_predictions4 = get_all_predictions(model4, images)
+        all_predictions1 = get_all_predictions(MODEL1, images)
+        all_predictions4 = get_all_predictions(MODEL4, images)
         all_predictions_ensemble = (all_predictions1 + all_predictions4)/2
 
         #Get final prediction

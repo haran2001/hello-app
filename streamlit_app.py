@@ -17,7 +17,7 @@ def predict():
     
     if upload is not None:
         image = Image.open(upload)
-        image = im.crop((left, top, right, bottom))
+        image = image.crop((left, top, right, bottom))
         newsize = (256, 256)
         image = image.resize(newsize)
         image = np.asarray(image)

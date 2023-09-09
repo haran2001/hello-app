@@ -14,7 +14,7 @@ CLASS_NAMES = ['Cescospora', 'Healthy', 'Miner', 'Phoma', 'Rust']
 
 #Function to get prediction array for a model (used in ensembling)
 def get_all_predictions(model, img):
-    img_array = tf.keras.preprocessing.image.img_to_array(images[i])
+    img_array = tf.keras.preprocessing.image.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)
 
     predictions = model.predict(img_array)
@@ -39,8 +39,8 @@ def predict():
         predictions4 = MODEL4.predict(img_batch)
         
         #Get model predictions for ensemble output
-        all_predictions1 = get_all_predictions(MODEL1, images)
-        all_predictions4 = get_all_predictions(MODEL4, images)
+        all_predictions1 = get_all_predictions(MODEL1, image)
+        all_predictions4 = get_all_predictions(MODEL4, image)
         all_predictions_ensemble = (all_predictions1 + all_predictions4)/2
 
         #Get final prediction

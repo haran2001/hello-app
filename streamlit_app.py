@@ -25,7 +25,7 @@ def get_all_predictions(model, img):
 def predict():
     image = None
     upload_file = st.file_uploader("Upload your image here...", type=['png', 'jpeg', 'jpg'])
-    upload_camera = st.camera_input("Take a picture")
+    upload_camera = st.camera_input("Or take a picture here...")
     
     if upload_file is not None:
         image = Image.open(upload_file)
@@ -66,22 +66,6 @@ def predict():
     else:
         return {"class1": "No Image", "confidence1": 0, "class4": "No Image", "confidence4": "No Image", "class_ensemble": "No Image", "confidence_ensemble": "No Image"}
 
-
-
-# if img_file_buffer is not None:
-#     # To read image file buffer as a PIL Image:
-#     img = Image.open(img_file_buffer)
-
-#     # To convert PIL Image to numpy array:
-#     img_array = np.array(img)
-
-#     # Check the type of img_array:
-#     # Should output: <class 'numpy.ndarray'>
-#     st.write(type(img_array))
-
-#     # Check the shape of img_array:
-#     # Should output shape: (height, width, channels)
-#     st.write(img_array.shape)
     
 predicted_output = predict()
 st.write("Prediction from baseline CNN model (183877 parameters): ", predicted_output['class1'])

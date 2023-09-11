@@ -32,7 +32,7 @@ def predict():
     if upload_camera is not None:
         image = Image.open(upload_camera)
         
-    if 1 == 1:
+    if upload_file is not None or upload_camera is not None:
         # image = Image.open(upload)
         # image = image.crop((left, top, right, bottom))
         st.image(image)

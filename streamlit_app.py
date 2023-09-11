@@ -33,8 +33,8 @@ def predict():
         image = Image.open(upload_camera)
         
     if 1 == 1:
-        image = Image.open(upload)
-        #image = image.crop((left, top, right, bottom))
+        # image = Image.open(upload)
+        # image = image.crop((left, top, right, bottom))
         st.image(image)
         newsize = (256, 256)
         image = image.resize(newsize)

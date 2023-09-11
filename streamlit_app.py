@@ -68,6 +68,7 @@ def predict():
 
     
 predicted_output = predict()
+st.write("Model Predictions: ")
 st.write("Prediction from baseline CNN model (183877 parameters): ", predicted_output['class1'])
 st.write("Prediction from Mobilenet-v2 (2667589 parameters): ", predicted_output['class4'])
 st.write("Prediction from Ensemble of baseline and mobilenet-v2 : ", predicted_output['class_ensemble'])

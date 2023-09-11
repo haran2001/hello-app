@@ -23,9 +23,16 @@ def get_all_predictions(model, img):
 
 #Function to get final predictions
 def predict():
-    upload = st.file_uploader("Upload your image here...", type=['png', 'jpeg', 'jpg'])
+    upload_file = st.file_uploader("Upload your image here...", type=['png', 'jpeg', 'jpg'])
+    upload_camera = st.camera_input("Take a picture")
     
-    if upload is not None:
+    if upload_file is not None:
+        image = Image.open(upload_file)
+        
+    if upload_camera is not None:
+        image = Image.open(upload_camera)
+        
+    if 1 == 1:
         image = Image.open(upload)
         #image = image.crop((left, top, right, bottom))
         st.image(image)
@@ -58,6 +65,23 @@ def predict():
     else:
         return {"class1": "No Image", "confidence1": 0, "class4": "No Image", "confidence4": "No Image", "class_ensemble": "No Image", "confidence_ensemble": "No Image"}
 
+
+
+# if img_file_buffer is not None:
+#     # To read image file buffer as a PIL Image:
+#     img = Image.open(img_file_buffer)
+
+#     # To convert PIL Image to numpy array:
+#     img_array = np.array(img)
+
+#     # Check the type of img_array:
+#     # Should output: <class 'numpy.ndarray'>
+#     st.write(type(img_array))
+
+#     # Check the shape of img_array:
+#     # Should output shape: (height, width, channels)
+#     st.write(img_array.shape)
+    
 predicted_output = predict()
 st.write("Prediction from baseline CNN model (183877 parameters): ", predicted_output['class1'])
 st.write("Prediction from Mobilenet-v2 (2667589 parameters): ", predicted_output['class4'])

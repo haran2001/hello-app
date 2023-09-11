@@ -23,6 +23,7 @@ def get_all_predictions(model, img):
 
 #Function to get final predictions
 def predict():
+    image = None
     upload_file = st.file_uploader("Upload your image here...", type=['png', 'jpeg', 'jpg'])
     upload_camera = st.camera_input("Take a picture")
     
@@ -32,7 +33,7 @@ def predict():
     if upload_camera is not None:
         image = Image.open(upload_camera)
         
-    if upload_file is not None or upload_camera is not None:
+    if image is not None:
         # image = Image.open(upload)
         # image = image.crop((left, top, right, bottom))
         st.image(image)

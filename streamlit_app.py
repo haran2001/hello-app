@@ -13,7 +13,7 @@ import urllib.request
 def load_model():
     if not os.path.isfile('model.h5'):
         urllib.request.urlretrieve('https://github.com/haran2001/hello-app/blob/main/baseline_resnet50.h5', 'model1.h5')
-    return tensorflow.keras.models.load_model('model1.h5')
+    return tf.keras.models.load_model('model1.h5')
     
 # if not os.path.isfile('model1.h5'):
     # subprocess.run(['curl --output model1.h5 "https://media.githubusercontent.com/media/haran2001/hello-app/blob/main/baseline_resnet50.h5"'], shell=True)

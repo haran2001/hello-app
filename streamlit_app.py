@@ -6,8 +6,8 @@ import streamlit as st
 import tensorflow as tf
 
 # Sequential model (Conv2D + MaxPool)
-MODEL1 = tf.keras.models.load_model("Omdena_model1.h5", compile=False)
-# MODEL1 = tf.keras.models.load_model("baseline_resnet50.h5", compile=False)
+# MODEL1 = tf.keras.models.load_model("Omdena_model1.h5", compile=False)
+MODEL1 = tf.keras.models.load_model("baseline_resnet50.h5", compile=False)
 # Mobilenet-v2 
 MODEL4 = tf.keras.models.load_model("Omdena_model4.h5", compile=False)
 

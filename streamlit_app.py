@@ -19,10 +19,12 @@ def load_model():
     # subprocess.run(['curl --output model1.h5 "https://media.githubusercontent.com/media/haran2001/hello-app/blob/main/baseline_resnet50.h5"'], shell=True)
     
 # Sequential model (Conv2D + MaxPool)
+# MODEL1 = tf.keras.models.load_model("baseline_resnet50.h5", compile=False)
 # MODEL1 = tf.keras.models.load_model("Omdena_model1.h5", compile=False)
-MODEL1 = tf.keras.models.load_model("baseline_resnet50.h5", compile=False)
 # MODEL1 = tf.keras.models.load_model('model1.h5', compile=False)
 # MODEL1 = load_model()
+MODEL1 = tf.keras.models.load_model("model_CNN1_BRACOL.h5", compile=False)
+
 # Mobilenet-v2 
 MODEL4 = tf.keras.models.load_model("Omdena_model4.h5", compile=False)
 

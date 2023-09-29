@@ -23,7 +23,9 @@ def load_model():
 # MODEL1 = tf.keras.models.load_model("Omdena_model1.h5", compile=False)
 # MODEL1 = tf.keras.models.load_model('model1.h5', compile=False)
 # MODEL1 = load_model()
-MODEL1 = tf.keras.models.load_model("model_CNN1_BRACOL.h5", compile=False)
+
+# MODEL1 = tf.keras.models.load_model("model_CNN1_BRACOL.h5", compile=False)
+MODEL1 = tf.keras.models.load_model("withouth_cersc_resnet50_deduplicated_mix_val_train_75acc.h5", compile=False)
 
 # Mobilenet-v2 
 MODEL4 = tf.keras.models.load_model("Omdena_model4.h5", compile=False)

@@ -57,19 +57,23 @@ def predict():
         # image = Image.open(upload)
         # image = image.crop((left, top, right, bottom))
         st.image(image)
-        newsize = (256, 256)
-        image = image.resize(newsize)
-        image = np.asarray(image)
-        img_batch = np.expand_dims(image, 0)
+        newsize1 = (224, 224)
+        newsize4 = (256, 256)
+        image1 = image.resize(newsize1)
+        image4 = image.resize(newsize4)
+        image1 = np.asarray(image1)
+        image4 = np.asarray(image4)
+        img_batch1 = np.expand_dims(image1, 0)
+        img_batch4 = np.expand_dims(image4, 0)
 
         #Get model predictions
-        predictions1 = MODEL1.predict(img_batch)
-        predictions4 = MODEL4.predict(img_batch)
+        predictions1 = MODEL1.predict(img_batch1)
+        predictions4 = MODEL4.predict(img_batch4)
         
         #Get model predictions for ensemble output
-        all_predictions1 = get_all_predictions(MODEL1, image)
-        all_predictions4 = get_all_predictions(MODEL4, image)
-        all_predictions_ensemble = (all_predictions1 + all_predictions4)/2
+        all_predictions1 = get_all_predictions(MODEL1, image1)
+        all_predictions4 = get_all_predictions(MODEL4, image4)
+        # all_predictions_ensemble = (all_predictions1 + all_predictions4)/2
 
         #Get final prediction
         predicted_class1 = CLASS_NAMES[np.argmax(predictions1[0])]
@@ -79,7 +83,8 @@ def predict():
         confidence4 = np.max(predictions4[0])
 
         #Get final prediction for ensemble
-        predicted_class_ensemble = CLASS_NAMES[np.argmax(all_predictions_ensemble[0])]
+        # predicted_class_ensemble = CLASS_NAMES[np.argmax(all_predictions_ensemble[0])]
+        predicted_class_ensemble = None
         confidence_ensemble = None
         
         return {"class1": predicted_class1, "confidence1": float(confidence1), "class4": predicted_class4, "confidence4": float(confidence4), "class_ensemble": predicted_class_ensemble, "confidence_ensemble": confidence_ensemble}
